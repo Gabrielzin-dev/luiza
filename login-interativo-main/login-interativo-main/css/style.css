@@ -1,0 +1,114 @@
+/* ===== FONTES ===== */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #FFB6C1, #FF69B4); /* gradiente rosa */
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
+}
+
+/* ===== TÍTULOS ===== */
+.container h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #FF69B4; /* título em rosa */
+}
+
+/* ===== DESCRIÇÃO ===== */
+.description {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* ===== INPUTS ===== */
+.form input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #FFC0CB; /* borda rosa clara */
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form input:focus {
+    border-color: #FF69B4;
+    box-shadow: 0 0 6px rgba(255, 105, 180, 0.5);
+}
+
+/* ===== BOTÃO ===== */
+.btn {
+    width: 100%;
+    padding: 12px;
+    background: #FF69B4; /* botão rosa forte */
+    border: none;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 15px;
+}
+
+.btn:hover {
+    background: #FF1493; /* rosa mais vibrante no hover */
+}
+
+/* ===== LINK DE ESQUECEU SENHA ===== */
+.password {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: #FF69B4;
+    text-decoration: none;
+}
+
+.password:hover {
+    color: #FF1493;
+}
+
+/* ===== ICONES ===== */
+.label-input {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    background: #ffe6f0; /* fundo rosa clarinho */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.label-input i {
+    padding: 0 10px;
+    color: #FF69B4;
+}
+
+.label-input input {
+    border: none;
+    background: transparent;
+    flex: 1;
+}

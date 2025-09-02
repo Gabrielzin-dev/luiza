@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login Interativo</title>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+    integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Roboto', sans-serif; }
+
+    body {
+        display: flex; justify-content: center; align-items: center; height: 100vh;
+        background: linear-gradient(135deg, #FFB6C1, #FF69B4);
+    }
+
+    .container {
+        background: #fff;
+        padding: 40px 30px;
+        border-radius: 15px;
+        box-shadow: 0px 10px 30px rgba(0,0,0,0.2);
+        width: 400px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .container h2 { margin-bottom: 20px; font-size: 1.8rem; font-weight: 700; color: #FF69B4; }
+    .description { font-size: 1rem; color: #555; margin-bottom: 25px; }
+
+    .form input {
+        width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #FFC0CB;
+        border-radius: 10px; font-size: 1rem; outline: none; transition: all 0.2s ease;
+    }
+    .form input:focus { border-color: #FF69B4; box-shadow: 0 0 6px rgba(255,105,180,0.5); }
+
+    .btn {
+        width: 100%; padding: 12px; background: #FF69B4; border: none; border-radius: 10px;
+        color: #fff; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 15px;
+        transition: transform 0.2s ease, background 0.3s ease;
+        position: relative;
+    }
+    .btn:hover { background: #FF1493; }
+
+    .password {
+        display: block; margin-top: 15px; font-size: 0.9rem; color: #FF69B4; text-decoration: none;
+    }
+    .password:hover { color: #FF1493; }
+
+    .label-input {
+        display: flex; align-items: center; margin: 10px 0; background: #ffe6f0;
+        border-radius: 8px; overflow: hidden;
+    }
+    .label-input i { padding: 0 10px; color: #FF69B4; }
+    .label-input input { border: none; background: transparent; flex: 1; }
+
+    /* EFEITO FLUTUANTE DE FUNDO */
+    .floating-heart {
+        position: absolute;
+        font-size: 20px;
+        color: #FF69B4;
+        pointer-events: none;
+        animation: floatUp 2s linear forwards;
+    }
+
+    @keyframes floatUp {
+        0% { opacity: 1; transform: translateY(0) scale(1); }
+        50% { transform: translateY(-50px) scale(1.2); }
+        100% { opacity: 0; transform: translateY(-120px) scale(0.5); }
+    }
+</style>
+</head>
+<body>
+<div class="container">
+    <h2>Entrar na sua conta</h2>
+    <p class="description">Entre com seu email e senha</p>
+    <form class="form">
+        <label class="label-input">
+            <i class="far fa-envelope"></i>
+            <input type="email" placeholder="Email" required>
+        </label>
+        <label class="label-input">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" required>
+        </label>
+        <a class="password" href="#">Esqueceu-se da palavra passe?</a>
+        <button class="btn" type="submit">Entrar</button>
+    </form>
+</div>
+
+<script>
+    const btn = document.querySelector('.btn');
+    const container = document.querySelector('.container');
+
+    // FUNÇÃO PARA FAZER O BOTÃO "FUGIR" QUANDO O MOUSE CHEGA PERTO
+    btn.addEventListener('mousemove', (e) => {
+        const rect = btn.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const moveX = (x - rect.width/2)/5;
+        const moveY = (y - rect.height/2)/5;
+        btn.style.transform = `translate(${moveX}px, ${moveY}px)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+        btn.style.transform = 'translate(0,0)';
+    });
+
+    // FUNÇÃO DE CORAÇÕES FLUTUANTES AO CLICAR NO BOTÃO
+    btn.addEventListener('click', (e) => {
+        for(let i=0; i<5; i++){
+            const heart = document.createElement('div');
+            heart.className = 'floating-heart';
+            heart.style.left = e.clientX + Math.random()*30 - 15 + 'px';
+            heart.style.top = e.clientY + 'px';
+            heart.style.fontSize = Math.random()*15 + 15 + 'px';
+            container.appendChild(heart);
+            setTimeout(() => heart.remove(), 2000);
+        }
+    });
+</script>
+</body>
+</html>
+
